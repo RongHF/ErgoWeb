@@ -51,7 +51,7 @@
                 {% endif %}
             {% endfor %}
 
-            {% for value0 in risk %}
+            {% for value0 in percent %}
                 {% if forloop.counter == forloop.parentloop.counter %}
                     <th>{{ value0 }}</th>
                 {% endif %}
@@ -69,7 +69,7 @@
                 <th></th>
                 <th></th>
                 <th>
-                    Total Risk:
+                    Total Risk(%):
                 </th>
                 <th>
                     {{ total_risk }}

@@ -16,11 +16,11 @@ def index(request):
     # if this is a POST request we need to process the form data
 
     num_task = 5
-    damage, risk, moment = [], [], []
+    damage, percent, moment = [], [], []
     for i in range(num_task):
         moment.append(0)
         damage.append(0)
-        risk.append(0)
+        percent.append(0)
     total_risk = 0
 
     if request.method == 'POST':
@@ -38,9 +38,14 @@ def index(request):
                 rep = float(data['form-'+str(i)+'-rep'])
 
                 LiFFT_cal = MyApp(lever_arm, load, rep)
-                moment[i], damage[i], risk[i] = LiFFT_cal.cal()
+                moment[i], damage[i] = LiFFT_cal.cal()
 
-            total_risk = sum(risk)
+            total_damage = sum(damage)
+            if total_damage != 0:
+                for j in range(len(damage)):
+                    percent[j] = round(damage[j]/total_damage*100, 1)
+
+            total_risk = LiFFT_cal.damage_to_risk(total_damage)
 
 
 
@@ -62,7 +67,7 @@ def index(request):
 
     return render(request, 'ErgoTool/ErgoTool_Header.html',
                   {'task_range':range(num_task), 'form_set': form_set,
-                   'moment':moment, 'damage': damage, 'risk': risk,
+                   'moment':moment, 'damage': damage, 'percent': percent,
                    'total_risk': total_risk})
 
 '''

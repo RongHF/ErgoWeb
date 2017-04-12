@@ -83,17 +83,23 @@ class MyApp(object):
                     
         task_damge = round((d_percycle * rep), 4)
         
+
+
+        return m, task_damge
+
+    def damage_to_risk(self, damage):
+        task_damge = damage
         if task_damge == 0:
             risk_output = 0
-        
+
         elif task_damge != 0 and task_damge < float(self.damage_reference[0]):
-            risk_output = float(self.risk_reference[0]) * 100 
-        elif task_damge > float(self.damage_reference[0]):  
+            risk_output = float(self.risk_reference[0]) * 100
+        elif task_damge > float(self.damage_reference[0]):
             risk_output = self.risk_reference_cal(self.damage_reference, self.risk_reference, task_damge) * 100
-        
-        risk_output = round(risk_output, 3)
-        return m, task_damge, risk_output
- 
+
+        risk_output = round(risk_output, 1)
+
+        return risk_output
                
                     
                 
