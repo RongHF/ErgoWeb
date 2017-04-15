@@ -1,0 +1,21 @@
+
+/* add space for the fixed nav bar */
+body {
+    padding-top: 70px;
+    font-size: 15px;
+}
+
+.navbar-inverse {
+    background-color: #337ab7;
+    border-color: #337ab7;
+
+}
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
+    font-size: 22px;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+    color: #bce8f1;
+    background-color: transparent;
+}
