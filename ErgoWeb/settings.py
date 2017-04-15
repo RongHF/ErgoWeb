@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["hfr1988.pythonanywhere.com"]
 
 INSTALLED_APPS = (
     'ErgoTool',
+    'mysite',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
