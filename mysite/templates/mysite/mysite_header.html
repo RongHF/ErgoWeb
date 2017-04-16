@@ -17,10 +17,12 @@
     <!-- addtional style information  -->
     <link rel="stylesheet" href="{% static 'mysite/css/mysite_local.css' %}"
               type = "text/css"/>
+    <link rel="stylesheet" href="{% static 'mysite/css/blog.css' %}"
+              type = "text/css"/>
 
     <link rel="icon" href="{% static 'mysite/img/icon.png' %}">
 
-    <title>Code the Future</title>
+    <title>Code for Future</title>
 
 	<style type="text/css">
 		html, body { height:100% }
@@ -40,14 +42,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{% url 'home' %}">Code the Future</a>
+          <a class="navbar-brand" href="{% url 'home' %}">Code for Future</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse pull-right">
           <ul class="nav navbar-nav">
+            <!--
             <li class="active"><a href="#">Home</a></li>
+            -->
+            <li><a href="#research"> Research </a></li>
+            <li><a href="#teach"> Teach </a></li>
+            <li><a href="#award"> Award </a></li>
+            <li><a href="#resume"> Resume </a></li>
+            <li><a href="#contact"> Contact </a></li>
 
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <!--
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -60,11 +68,16 @@
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
+            -->
 
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
 
 
     <div class="container">
